@@ -6,22 +6,22 @@ calc-easy-v2 is a simple, lightweight, and user-friendly calculator web applicat
 
 ## Features
 
--   **Basic Arithmetic Operations:** Supports addition, subtraction, multiplication, division, and percentage calculations.
--   **Clear and Responsive Design:**  A modern, visually appealing interface that adapts to different screen sizes.
--   **Error Handling:** Displays "Error" for invalid calculations.
--   **Backspace Functionality:** Allows users to easily correct mistakes.
--   **All-in-One:** The application is self-contained, with all CSS and JavaScript embedded in a single HTML file for easy deployment.
-
-## How to Use
-
-1.  Open the `index.html` file in your web browser.
-2.  Use the buttons to input numbers and operators.
-3.  Click the "=" button to calculate the result.
-4.  Click the "C" button to clear the display.
-5.  Click the backspace button to remove the last character.
+-   **Basic Arithmetic Operations:** Supports addition, subtraction, multiplication, and division.
+-   **Clear Display:** A button to clear the input display for new calculations.
+-   **Responsive Design:** Adapts seamlessly to different screen sizes for optimal viewing on desktops, tablets, and mobile devices.
+-   **User-Friendly Interface:** Simple and intuitive design for ease of use.
+-   **Company Logo:** Displays the company logo at the top of the calculator.
 
 ## Technologies Used
 
 -   HTML5
 -   CSS3 (Embedded)
 -   JavaScript (Vanilla)
+
+## How to Use
+
+Simply open the `index.html` file in any modern web browser. The calculator interface will be displayed, allowing you to perform calculations immediately.
+
+## Changes
+
+- Added company logo to the calculator interface.
