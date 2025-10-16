@@ -18,135 +18,115 @@
         .calculator {
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             width: 300px;
+            text-align: center;
         }
 
-        .display {
-            background-color: #eee;
-            border-radius: 5px;
+        #display {
+            width: 90%;
+            margin-bottom: 10px;
             padding: 10px;
-            margin-bottom: 15px;
+            font-size: 1.5em;
             text-align: right;
-            font-size: 24px;
-            overflow: hidden;
-            white-space: nowrap;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
+            grid-gap: 5px;
         }
 
         button {
-            background-color: #ddd;
+            padding: 10px;
+            font-size: 1.2em;
             border: none;
             border-radius: 5px;
-            padding: 15px;
-            font-size: 18px;
+            background-color: #eee;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #ccc;
+            background-color: #ddd;
         }
 
         .operator {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #fdd835;
         }
 
         .operator:hover {
-            background-color: #45a049;
+            background-color: #fb8c00;
         }
 
         .equal {
-            background-color: #2196F3;
+            background-color: #4caf50;
             color: white;
-            grid-column: span 2;
         }
 
         .equal:hover {
-            background-color: #1e88e5;
+            background-color: #388e3c;
         }
 
-        @media (max-width: 400px) {
-            .calculator {
-                width: 90%;
-            }
+        .clear {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .clear:hover {
+            background-color: #d32f2f;
+        }
+
+        .logo {
+            max-width: 100px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-
     <div class="calculator">
-        <div class="display" id="display">0</div>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAA...AAElFTkSuQmCC" alt="Company Logo" class="logo">
+        <input type="text" id="display" readonly>
         <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="backspace()">&#9003;</button>
-            <button onclick="appendToDisplay('%')" class="operator">%</button>
-            <button onclick="appendToDisplay('/')" class="operator">/</button>
             <button onclick="appendToDisplay('7')">7</button>
             <button onclick="appendToDisplay('8')">8</button>
             <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('*')" class="operator">*</button>
+            <button class="operator" onclick="appendToDisplay('/')">/</button>
             <button onclick="appendToDisplay('4')">4</button>
             <button onclick="appendToDisplay('5')">5</button>
             <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button class="operator" onclick="appendToDisplay('*')">*</button>
             <button onclick="appendToDisplay('1')">1</button>
             <button onclick="appendToDisplay('2')">2</button>
             <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
             <button onclick="appendToDisplay('0')">0</button>
             <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculate()" class="equal">=</button>
+            <button class="equal" onclick="calculate()">=</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            <button class="clear" onclick="clearDisplay()">Clear</button>
         </div>
     </div>
 
     <script>
-        let displayValue = '0';
-
-        function updateDisplay() {
-            document.getElementById('display').innerText = displayValue;
-        }
-
         function appendToDisplay(value) {
-            if (displayValue === '0' && value !== '.') {
-                displayValue = value;
-            } else {
-                displayValue += value;
-            }
-            updateDisplay();
+            document.getElementById('display').value += value;
         }
 
         function clearDisplay() {
-            displayValue = '0';
-            updateDisplay();
+            document.getElementById('display').value = '';
         }
 
         function calculate() {
             try {
-                displayValue = eval(displayValue);
-                updateDisplay();
+                document.getElementById('display').value = eval(document.getElementById('display').value);
             } catch (error) {
-                displayValue = 'Error';
-                updateDisplay();
+                document.getElementById('display').value = 'Error';
             }
         }
-
-        function backspace() {
-            displayValue = displayValue.slice(0, -1);
-            if (displayValue === '') {
-                displayValue = '0';
-            }
-            updateDisplay();
-        }
-
-        updateDisplay();
     </script>
 </body>
 </html>
